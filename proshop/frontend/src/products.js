@@ -60,7 +60,7 @@ export const products = [
   },
   {
     name: " sony Playstation 4",
-    id: "4",
+    id: "5",
     brand: "logitech",
     category: "Gaming Consoles",
     price: 499.99,
@@ -73,7 +73,7 @@ export const products = [
   },
   {
     name: " canon Camera",
-    id: "5",
+    id: "6",
     brand: "logitech",
     category: "Gaming Consoles",
     price: 499.99,
