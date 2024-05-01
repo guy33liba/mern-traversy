@@ -2,7 +2,6 @@ import React from "react"
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { FaShoppingCart, FaUser } from "react-icons/fa"
 import { LinkContainer } from "react-router-bootstrap"
-import logo from "../assets/logo.png"
 const Header = () => {
   return (
     <div>
@@ -11,7 +10,7 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand>
               <div>
-                <img src={logo} alt="" height="50px" />
+                <img src="./assets/logo.png" alt="" height="50px" />
                 <span style={{ marginLeft: "20px" }}>ProShop</span>
               </div>
             </Navbar.Brand>
