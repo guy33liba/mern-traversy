@@ -3,8 +3,6 @@ import products from "./data/products.js"
 import cors from "cors"
 //
 
-const mongoUrl =
-  "mongodb+srv://guy33liba:g33g33g33@cluster0.chsfoti.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const app = express()
 const port = 5000
 //
