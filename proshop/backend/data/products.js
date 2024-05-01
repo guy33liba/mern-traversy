@@ -1,7 +1,7 @@
 export const products = [
   {
     name: "Sony PlayStation 5",
-    id: "1",
+
     brand: "Sony",
     category: "Gaming Consoles",
     price: 499.99,
@@ -14,7 +14,7 @@ export const products = [
   },
   {
     name: `air pods 3`,
-    id: "2",
+
     brand: "Sony",
     category: "Gaming Consoles",
     price: 499.99,
@@ -27,7 +27,7 @@ export const products = [
   },
   {
     name: "iphone 13 ",
-    id: "3",
+
     brand: "Apple",
     category: "Gaming Consoles",
     price: 499.99,
@@ -40,7 +40,6 @@ export const products = [
   },
   {
     name: "logitech wireless",
-    id: "4",
     brand: "logitech",
     category: "Gaming Consoles",
     price: 499.99,
@@ -53,7 +52,6 @@ export const products = [
   },
   {
     name: "sony playstation 4",
-    id: "5",
     brand: "logitech",
     category: "Gaming Consoles",
     price: 499.99,
@@ -62,11 +60,10 @@ export const products = [
     image: "./assets/sony4.png",
     numReviews: 8,
     description:
-      "Sony PlayStation 4 (PS4): A powerhouse gaming console offering stunning visuals, immersive gameplay, and robust online multiplayer capabilities through the PlayStation Network. With a vast library of games and multimedia features, it's the ultimate entertainment hub for players worldwide.",
+      "Sony PlayStation 4 (PS4): A powerhouse gaming console offering stunning visuals, immersive gameplay, and robust online multiplayer capabilities through the PlayStation Network. With a vast library of games and multimedia features, it's the ultimate entertainment hub for players world",
   },
   {
     name: " canon Camera",
-    id: "6",
     brand: "logitech",
     category: "Gaming Consoles",
     price: 499.99,
@@ -75,7 +72,7 @@ export const products = [
     image: "./assets/canonCamera.png",
     numReviews: 8,
     description:
-      " a Canon camera embodies the perfect blend of craftsmanship, innovation, and imaging excellence, making it a trusted choice for photographers worldwide.",
+      " a Canon camera embodies the perfect blend of craftsmanship, innovation, and imaging excellence, making it a trusted choice for photographers world",
   },
 ]
 export default products
