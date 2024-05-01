@@ -13,7 +13,7 @@ export const products = [
       "Experience lightning-fast loading with an ultra-high-speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D audio, and an all-new generation of incredible PlayStation games.",
   },
   {
-    name: "airpods3",
+    name: "Air Pods3",
     id: "2",
     brand: "Sony",
     category: "Gaming Consoles",
