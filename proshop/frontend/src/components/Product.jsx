@@ -4,14 +4,14 @@ import { Link } from "react-router-dom"
 import Rating from "./Rating"
 const Product = ({ product }) => {
   return (
-    <Card className="my-3 p-3 rounded h3" style={{ height: "320px", width: "350px" }}>
+    <Card className="my-3 p-3 rounded h3" style={{ height: "400px", width: "350px" }}>
       <Link to={`/product/${product.id}`}>
-        <Card.Img src={product.image} variant="top" style={{ width: "150px", height: "130px" }} />
+        <Card.Img src={product.image} variant="top" style={{ width: "200px", height: "160px" }} />
       </Link>
 
       <Card.Body>
         <Link style={{ color: "black" }} to={`/product/${product.id}`}>
-          <Card.Title as="div">
+          <Card.Title as="div" className="cardTitle">
             <strong>{product.name}</strong>
           </Card.Title>
         </Link>
