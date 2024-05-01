@@ -1,7 +1,6 @@
 import express from "express"
 import products from "./data/products.js"
 import cors from "cors"
-
 //
 const app = express()
 const port = 5000
