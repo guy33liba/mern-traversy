@@ -58,7 +58,7 @@ export const products = [
     category: "Gaming Consoles",
     price: 499.99,
     count_in_stock: 50,
-    rating: 3.4,
+    rating: 3.5,
     image: "./assets/sony4.png",
     numReviews: 8,
     description:
@@ -71,7 +71,7 @@ export const products = [
     category: "Gaming Consoles",
     price: 499.99,
     count_in_stock: 0,
-    rating: 3.4,
+    rating: 4.5,
     image: "./assets/canonCamera.png",
     numReviews: 8,
     description:
