@@ -10,7 +10,7 @@ const Product = ({ product }) => {
       </Link>
 
       <Card.Body>
-        <Link style={{ color: "black" }} to={`/product/${product.id}`}>
+        <Link style={{ color: "black" }} to={`/product/${product._id}`}>
           <Card.Title as="div" className="cardTitle">
             <strong>{product.name.charAt(0).toUpperCase()+product.name.slice(1).toLowerCase()}</strong>
           </Card.Title>
