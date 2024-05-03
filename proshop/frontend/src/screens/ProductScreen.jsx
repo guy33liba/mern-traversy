@@ -3,13 +3,12 @@ import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap"
 import Rating from "../components/Rating"
-import products from "../products"
 import { useState } from "react"
 import axios from "axios"
 const ProductScreen = () => {
   const { id: productId } = useParams()
   const [product, setProduct] = useState({})
-  
+
   useEffect(() => {
     const fetchProduct = async () => {
       const { data } = await axios.get(`/api/products/${productId}`)
@@ -24,9 +23,7 @@ const ProductScreen = () => {
         Go Back
       </Link>
       <Row>
-        <Col md={5}>
-          <Image src={product.image} fluid />
-        </Col>
+        <Col md={5}>{product.image && <Image src={product.image} fluid />}</Col>
         <Col md={4}>
           <ListGroup variant="flush">
             <ListGroup.Item>

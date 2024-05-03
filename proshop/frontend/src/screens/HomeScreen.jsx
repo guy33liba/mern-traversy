@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import axios from "axios"
 import { Row, Col } from "react-bootstrap"
 import Product from "../components/Product"
+
 const HomeScreen = () => {
   const [products, setProducts] = useState([])
   useEffect(() => {
@@ -16,10 +17,10 @@ const HomeScreen = () => {
     <div>
       <h1>Lastest Products</h1>
       <Row>
-        {products.map((product) => {
+        {products.map((product, i) => {
           return (
             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-              <Product product={product} />
+              <Product key={i} product={product} />
             </Col>
           )
         })}
