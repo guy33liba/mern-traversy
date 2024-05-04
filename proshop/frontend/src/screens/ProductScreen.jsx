@@ -13,18 +13,17 @@ const ProductScreen = () => {
     const fetchProduct = async () => {
       const { data } = await axios.get(`/api/products/${productId}`)
       setProduct(data)
-      console.log(data)
     }
     fetchProduct()
   }, [productId])
-  //
+  console.log(product.image)
   return (
     <div>
       <Link className="btn btn-light my3" to="/">
         Go Back
       </Link>
       <Row>
-        <Col md={5}>{product.image && <Image src={product.image} fluid />}</Col>
+        <Col md={5}>{product.image && <Image src={`../${product.image}`} fluid />}</Col>
         <Col md={4}>
           <ListGroup variant="flush">
             <ListGroup.Item>
