@@ -1,8 +1,11 @@
 import React from "react"
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { FaShoppingCart, FaUser } from "react-icons/fa"
+import { useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
+
 const Header = () => {
+  const {} = useSelector((state) => state.cart)
   return (
     <div>
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
