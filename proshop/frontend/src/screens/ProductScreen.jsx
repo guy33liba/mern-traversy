@@ -8,11 +8,13 @@ import { useGetProductsDetailsQuery } from "../slices/productsApiSlice"
 import { useState } from "react"
 import { addToCart } from "../slices/cartSlice"
 import { useDispatch } from "react-redux"
+
 const ProductScreen = () => {
   const { id: productId } = useParams()
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [qty, setQty] = useState(0)
+  const [qty, setQty] = useState(1)
 
   const { data: product, isLoading, error } = useGetProductsDetailsQuery(productId)
   const addToCartHandler = () => {
