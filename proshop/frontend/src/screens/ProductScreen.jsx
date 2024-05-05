@@ -1,5 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { Form, Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap"
 import Rating from "../components/Rating"
 import Loader from "../components/Loader"
