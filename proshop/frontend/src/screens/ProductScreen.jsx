@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap"
 import Rating from "../components/Rating"
 import { useGetProductsDetailsQuery } from "../slices/productsApiSlice"
+import Loader from "../components/Loader"
 const ProductScreen = () => {
   const { id: productId } = useParams()
   const { data: product, isLoading, error } = useGetProductsDetailsQuery(productId)
@@ -12,7 +13,7 @@ const ProductScreen = () => {
         Go Back
       </Link>
       {isLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
         <div>{error?.data?.message || error.error}</div>
       ) : (
