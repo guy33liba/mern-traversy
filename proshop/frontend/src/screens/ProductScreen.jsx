@@ -15,7 +15,7 @@ const ProductScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <div>{error?.data?.message || error.error}</div>
+        <Message variant="danger">{error?.data?.message || error.error}</Message>
       ) : (
         <Row>
           <Col md={5}>{product.image && <Image src={`../${product.image}`} fluid />}</Col>
