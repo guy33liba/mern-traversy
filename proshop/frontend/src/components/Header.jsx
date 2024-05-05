@@ -10,7 +10,7 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand>
               <div>
-                <img src="./assets/logo.png" alt="" height="50px" />
+                <img src="../assets/logo.png" alt="" height="50px" />
                 <span style={{ marginLeft: "20px" }}>ProShop</span>
               </div>
             </Navbar.Brand>
