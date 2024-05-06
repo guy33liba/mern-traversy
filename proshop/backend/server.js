@@ -1,4 +1,4 @@
-import express from "express"
+import express, { urlencoded } from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import { connectDB } from "./config/db.js"
@@ -13,6 +13,7 @@ const port = process.env.PORT || 5000
 //
 app.use(cors())
 app.use(express.json())
+app.use(urlencoded({ extended: true }))
 
 app.use("/api/products", productRoutes)
 app.use("/api/users", userRoutes)
