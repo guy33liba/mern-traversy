@@ -4,7 +4,7 @@ export const products = [
 
     brand: "Sony",
     category: "Gaming Consoles",
-    price: 499.99,
+    price: 109.99,
     countInStock: 3,
     rating: 2.6,
     image: "assets/sony5.png",
@@ -17,7 +17,7 @@ export const products = [
 
     brand: "Sony",
     category: "Gaming Consoles",
-    price: 459.99,
+    price: 339.99,
     countInStock: 6,
     rating: 3.6,
     image: "assets/airpods3.png",
