@@ -4,13 +4,20 @@ import { useDispatch, useSelector } from "react-redux"
 import { Row, Col, ListGroup, Image, Form, Button, Card } from "react-bootstrap"
 import { FaTrash } from "react-icons/fa"
 import Message from "../components/Message"
+import { addToCartHandler } from "./ProductScreen"
+import { addToCart } from "../slices/cartSlice"
+
 const CartScreen = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
   const { cartItems } = cart
-  console.log(cartItems)
+
+  const addToCartHandler = async (product, qty) => {
+    dispatch(addToCart({ ...product, qty }))
+  }
+
   return (
     <Row>
       <Col md={8}>
@@ -30,16 +37,21 @@ const CartScreen = () => {
                   <Col md={3}>
                     <Link to={`/product/${item._id}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>${item.price}</Col>
+                  <Col md={3}>${item.price * item.qty}</Col>
                   <Col md={2}>
-                    <Form.Control as="select" value={item.qty} onChange={(e) => {}}>
+                    <Form.Control
+                      as="select"
+                      value={item.qty}
+                      onChange={(e) => {
+                        addToCartHandler(item, Number(e.target.value))
+                      }}>
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
                         </option>
                       ))}
                     </Form.Control>
-                    <Col md={2}>
+                    <Col>
                       <Button type="button" variant="light">
                         <FaTrash />
                       </Button>
