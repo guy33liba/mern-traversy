@@ -3,7 +3,7 @@ import asyncHandler from "./asyncHandler.js"
 import User from "../models/UserModel.js"
 
 //Protect Routes
- const protect = asyncHandler(async (req, res, next) => {
+const protect = asyncHandler(async (req, res, next) => {
   let token
 
   //read the jwt from the cooke
