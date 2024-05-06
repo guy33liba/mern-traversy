@@ -3,7 +3,7 @@ import asyncHandler from "./asyncHandler.js"
 import User from "../models/UserModel.js"
 
 //Protect Routes
-export const protect = asyncHandler(async (req, res, next) => {
+ const protect = asyncHandler(async (req, res, next) => {
   let token
 
   //read the jwt from the cooke
@@ -35,3 +35,4 @@ const admin = (req, res, next) => {
     throw new Error("not authorized as admin")
   }
 }
+export { protect, admin }
