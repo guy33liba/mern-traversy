@@ -65,14 +65,15 @@ const logoutUser = asyncHandler(async (req, res) => {
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = User.findOne(req.user._id)
   if (user) {
-    res
-      .status(200)
-      .res.send({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        isAdmin: user.isAdmin,
-      })
+    res.status(200).res.send({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    })
+  } else {
+    res.status(404)
+    throw new Error("Invalid user data")
   }
 })
 // update  user  profile& clear cookie
