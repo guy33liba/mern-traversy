@@ -33,7 +33,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // update  user  profile& clear cookie
 //route GET /api/users/profile
 // access Private/Admin
-const getAllUsers = asyncHandler(async (req, res) => {
+const getUsers = asyncHandler(async (req, res) => {
   res.send("get All Users")
 })
 // delete  user  profile& clear cookie
@@ -42,3 +42,24 @@ const getAllUsers = asyncHandler(async (req, res) => {
 const deleteUsers = asyncHandler(async (req, res) => {
   res.send("delete Users")
 })
+const deleteUser = asyncHandler(async (req, res) => {
+  res.send("delete Users")
+})
+const getUserById = asyncHandler(async (req, res) => {
+  res.send("delete Users")
+})
+const updateUser = asyncHandler(async (req, res) => {
+  res.send("delete Users")
+})
+export {
+  authUser,
+  registerUser,
+  logoutUser,
+  getUserProfile,
+  updateUserProfile,
+  getUsers,
+  deleteUsers,
+  deleteUser,
+  getUserById,
+  updateUser,
+}
