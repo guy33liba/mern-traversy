@@ -8,10 +8,9 @@ const CartScreen = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const cart = useSelector((state) => {
-    state.cart
-  })
+  const cart = useSelector((state) => state.cart)
   const { cartItems } = cart
+  console.log(cartItems)
   return (
     <Row>
       <Col md={8}>
@@ -21,7 +20,19 @@ const CartScreen = () => {
             Your cart is Empty <Link to="/">Go Back</Link>
           </Message>
         ) : (
-          <ListGroup variant="flush">Items</ListGroup>
+          <ListGroup variant="flush">
+            {cartItems.map((item) => {
+              return (
+                <ListGroup.Item key={item._id}>
+                  <Row>
+                    <Col md={4}>
+                      <Image src={item.image} alt={item.name} fluid rounded />
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+              )
+            })}
+          </ListGroup>
         )}
       </Col>
     </Row>
