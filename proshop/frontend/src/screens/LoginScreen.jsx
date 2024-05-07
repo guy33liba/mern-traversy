@@ -52,7 +52,7 @@ const LoginScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="password" className="my-3">
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label>Password </Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter password"
@@ -60,14 +60,17 @@ const LoginScreen = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button type="submit" variant="primary" className="mt-2">
+        <Button type="submit" variant="primary" className="mt-2" disabled={isLoading}>
           Sign In
         </Button>
         {isLoading && <Loader />}
       </Form>
       <Row className="py-3">
         <Col>
-          New Costumer? <Link to="/register">Register</Link>
+          New Customer?{" "}
+          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+            Register
+          </Link>
         </Col>
       </Row>
     </FormContainer>
