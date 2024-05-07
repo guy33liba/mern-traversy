@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Form, Button, Row, Col } from "react-bootstrap"
@@ -18,10 +18,25 @@ const LoginScreen = () => {
 
   const [login, { isLoading }] = useLoginMutation()
   const { userInfo } = useSelector((state) => state.auth)
+  const { search } = useLocation()
+  const sp = new URLSearchParams(search)
+  const redirect = sp.get("redirect") || "/"
 
-  const submitHandler = (e) => {
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect)
+    }
+  }, [userInfo, redirect, navigate])
+
+  const submitHandler = async (e) => {
     e.preventDefault()
-    console.log("submit")
+    try {
+      const res = await login({ email, password }).unwrap()
+      dispatch(setCredentials({ ...res }))
+      navigate(redirect)
+    } catch (err) {
+      toast.error(err?.data?.message || err.error)
+    }
   }
   return (
     <FormContainer>
@@ -45,9 +60,10 @@ const LoginScreen = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button type="submit" variant="primary" className="my-3">
+        <Button type="submit" variant="primary" className="mt-2">
           Sign In
         </Button>
+        {isLoading && <Loader />}
       </Form>
       <Row className="py-3">
         <Col>
