@@ -48,8 +48,7 @@ const LoginScreen = () => {
             type="email"
             placeholder="Enter email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setEmail(e.target.value)}></Form.Control>
         </Form.Group>
         <Form.Group controlId="password" className="my-3">
           <Form.Label>Password </Form.Label>
@@ -57,8 +56,7 @@ const LoginScreen = () => {
             type="password"
             placeholder="Enter password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
+            onChange={(e) => setPassword(e.target.value)}></Form.Control>
         </Form.Group>
         <Button type="submit" variant="primary" className="mt-2" disabled={isLoading}>
           Sign In
@@ -68,9 +66,7 @@ const LoginScreen = () => {
       <Row className="py-3">
         <Col>
           New Customer?{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            Register
-          </Link>
+          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>Register</Link>
         </Col>
       </Row>
     </FormContainer>

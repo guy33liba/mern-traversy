@@ -10,26 +10,19 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email })
 
   if (user && (await user.matchPassword(password))) {
-    generateToken(res, user._id)
+    const token = generateToken(res, user._id)
 
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      sameSite: "strict",
-      maxAge: 30 * 24 * 60 * 60 * 1000, //30 days
-    })
-
-    res.json({
+    res.status(200).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      token: token,
     })
   } else {
     res.status(401)
     throw new Error("Invalid email or password")
   }
-  res.send("auth User")
 })
 // Auth user & get Token
 //route POST /api/users/
@@ -43,9 +36,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
   const user = await User.create({ name, email, password })
   if (user) {
-    res
-      .status(200)
-      .json({ _id: user._id, name: user.name, email: user.email, admin: user.isAdmin })
+    res.status(200).json({ _id: user._id, name: user.name, email: user.email, admin: user.isAdmin })
   } else {
     res.status(401)
     throw new Error("Invalid user data")
