@@ -22,7 +22,7 @@ const Header = () => {
       navigate("/login")
       console.log("logged out")
     } catch (err) {
-      console.log("er", err)
+      console.log(err)
     }
   }
   return (
