@@ -4,7 +4,7 @@ import FormContainer from "../components/FormContainer"
 import CheckoutSteps from "../components/CheckoutSteps"
 
 const PaymentScreen = () => {
-  const [paymentMethod, setPaymentMethod] = useState("PayPal")
+  const [paymentMethod, setPaymentMethod] = useState("")
   const handleCheckBox = (newValue) => {
     setPaymentMethod("PayPal")
     if (newValue === "PayPal") {
