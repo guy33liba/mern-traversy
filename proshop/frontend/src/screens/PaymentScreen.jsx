@@ -4,7 +4,18 @@ import FormContainer from "../components/FormContainer"
 import CheckoutSteps from "../components/CheckoutSteps"
 
 const PaymentScreen = () => {
-  const [paymentMethod, setPaymentMethod] = useState("Pay Pal")
+  const [paymentMethod, setPaymentMethod] = useState("PayPal")
+  const handleCheckBox = (newValue) => {
+    setPaymentMethod("PayPal")
+    if (newValue === "PayPal") {
+      newValue = ""
+      setPaymentMethod(newValue)
+    } else {
+      newValue = "PayPal"
+      setPaymentMethod(newValue)
+    }
+  }
+
   return (
     <div>
       <FormContainer>
@@ -19,9 +30,9 @@ const PaymentScreen = () => {
                 label="PayPal or Credit Card"
                 id="PayPal"
                 name="paymentMethod"
-                value="PayPal"
+                value={paymentMethod}
                 checked={paymentMethod === "PayPal"}
-                onChange={(e) => setPaymentMethod(e.target.value)}
+                onClick={(e) => handleCheckBox(e.target.value)}
               />
             </Col>
           </Form.Group>
