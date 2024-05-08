@@ -93,6 +93,12 @@ const RegisterScreen = () => {
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>Register</Link>
         </Col>
       </Row>
+      <Row className="py-3">
+        <Col>
+          Already have an Account?
+          <Link to={redirect ? `/register?redirect=${redirect}` : "/login"}>Login</Link>
+        </Col>
+      </Row>
     </FormContainer>
   )
 }
