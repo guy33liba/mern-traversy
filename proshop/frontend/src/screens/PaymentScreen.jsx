@@ -31,12 +31,17 @@ const PaymentScreen = () => {
     }
   }, [shippingAddress, navigate])
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+    dispatch(savePaymentMethod(paymentMethod))
+    navigate("/placeorder")
+  }
   return (
     <div>
       <FormContainer>
         <CheckoutSteps step1 step2 step3 />
         <h1>Payment Method</h1>
-        <Form>
+        <Form onSubmit={submitHandler}>
           <Form.Group controlId="paymentMethod">
             <Form.Label>Payment Method</Form.Label>
             <Col>
