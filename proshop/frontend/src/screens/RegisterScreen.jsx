@@ -37,7 +37,7 @@ const RegisterScreen = () => {
       return
     } else {
       try {
-        const res = await register({ email, password }).unwrap()
+        const res = await register({ name, email, password }).unwrap()
         dispatch(setCredentials({ ...res }))
         navigate(redirect)
       } catch (err) {
@@ -47,7 +47,7 @@ const RegisterScreen = () => {
   }
   return (
     <FormContainer>
-      <h1>Sign Up</h1>
+      <h1>Sign Up</h1> 
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name" className="my-3 fs-4">
           <Form.Label>Name </Form.Label>
