@@ -7,18 +7,20 @@ import CheckoutSteps from "../components/CheckoutSteps"
 import { savePaymentMethod } from "../slices/cartSlice"
 
 const PaymentScreen = () => {
-  const [paymentMethod, setPaymentMethod] = useState("")
-  const handleCheckBox = (newValue) => {
-    setPaymentMethod("PayPal")
-    if (newValue === "PayPal") {
-      newValue = ""
-      setPaymentMethod(newValue)
-    } else {
-      newValue = "PayPal"
-      setPaymentMethod(newValue)
-    }
-  }
+  const [paymentMethod, setPaymentMethod] = useState("PayPal")
+  // const handleCheckBox = (newValue) => {
+  //   setPaymentMethod("PayPal")
+  //   if (newValue === "PayPal") {
+  //     newValue = ""
+  //     setPaymentMethod(newValue)
+  //   } else {
+  //     newValue = "PayPal"
+  //     setPaymentMethod(newValue)
+  //   }
+  // }
 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   return (
     <div>
       <FormContainer>
@@ -35,7 +37,8 @@ const PaymentScreen = () => {
                 name="paymentMethod"
                 value={paymentMethod}
                 checked={paymentMethod === "PayPal"}
-                onClick={(e) => handleCheckBox(e.target.value)}
+                // onClick={(e) => handleCheckBox(e.target.value)}
+                onChange={(e) => setPaymentMethod(e.target.value)}
               />
             </Col>
           </Form.Group>
