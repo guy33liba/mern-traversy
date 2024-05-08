@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import FormContainer from "../components/FormContainer"
 import { useNavigate } from "react-router-dom"
 import { saveShippingAddress } from "../slices/cartSlice"
-
+import CheckoutSteps from "../components/CheckoutSteps"
 const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart)
   const { shippingAddress } = cart
@@ -25,6 +25,7 @@ const ShippingScreen = () => {
 
   return (
     <FormContainer>
+      <CheckoutSteps step1 step2 />
       <h1>Shipping</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address" className="my-2">
@@ -33,7 +34,8 @@ const ShippingScreen = () => {
             type="text"
             placeholder="Enter Address"
             value={address}
-            onChange={(e) => setAddress(e.target.value)}></Form.Control>
+            onChange={(e) => setAddress(e.target.value)}
+          ></Form.Control>
         </Form.Group>
         <Form.Group controlId="city" className="my-2">
           <Form.Label>City</Form.Label>
@@ -41,7 +43,8 @@ const ShippingScreen = () => {
             type="text"
             placeholder="Enter city"
             value={city}
-            onChange={(e) => setCity(e.target.value)}></Form.Control>
+            onChange={(e) => setCity(e.target.value)}
+          ></Form.Control>
         </Form.Group>
         <Form.Group controlId="postalCode" className="my-2">
           <Form.Label>Postal Code</Form.Label>
@@ -49,7 +52,8 @@ const ShippingScreen = () => {
             type="text"
             placeholder="Enter postal Code"
             value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}></Form.Control>
+            onChange={(e) => setPostalCode(e.target.value)}
+          ></Form.Control>
         </Form.Group>
         <Form.Group controlId="country" className="my-2">
           <Form.Label>Country</Form.Label>
@@ -57,7 +61,8 @@ const ShippingScreen = () => {
             type="text"
             placeholder="Enter Country"
             value={address}
-            onChange={(e) => setCountry(e.target.value)}></Form.Control>
+            onChange={(e) => setCountry(e.target.value)}
+          ></Form.Control>
         </Form.Group>
         <Button type="submit" variant="primary" className="my-2">
           Continue
