@@ -21,7 +21,7 @@ const PlaceOrderScreens = () => {
       navigate("/payment")
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate])
-
+console.log(cart)
   return (
     <>
       <CheckoutSteps step1 step2 step3 step4>
@@ -51,17 +51,7 @@ const PlaceOrderScreens = () => {
                   {cart.cartItems.length === 0 ? (
                     <Message>Your Cart is Empty</Message>
                   ) : (
-                    <ListGroup variant="flush">
-                      {cart.orderItems.map((item, index) => (
-                        <ListGroup.Item key={index}>
-                          <Row>
-                            <Col>
-                              <Image src={item.image} fluid rounded />
-                            </Col>
-                          </Row>{" "}
-                        </ListGroup.Item>
-                      ))}
-                    </ListGroup>
+                    <div></div>
                   )}
                 </p>
               </ListGroup.Item>
