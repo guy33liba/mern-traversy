@@ -15,12 +15,12 @@ const PlaceOrderScreens = () => {
   const cart = useSelector((state) => state.cart)
 
   useEffect(() => {
-    if (!cart.shippingAddress) {
+    if (!cart.shippingAddress.address) {
       navigate("/placeorder")
     } else if (!cart.paymentMethod) {
       navigate("/payment")
     }
-  }, [cart.paymentMethod, cart.shippingAddress, navigate])
+  }, [cart.paymentMethod, cart.shippingAddress.address, navigate])
 
   return (
     <>
