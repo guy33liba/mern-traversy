@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap"
 import CheckoutSteps from "../components/CheckoutSteps"
@@ -8,17 +8,18 @@ import Message from "../components/Message"
 import Loader from "../components/Loader"
 import { useCreateOrderMutations } from "../slices/orderApiSlice"
 import { clearCartItems } from "../slices/cartSlice"
+//
 const PlaceOrderScreens = () => {
   const navigate = useNavigate()
   const cart = useSelector((state) => state.cart)
 
   useEffect(() => {
-    if (!cart.shippingAddress.address) {
+    if (!cart.shippingAddress) {
       navigate("/placeorder")
     } else if (!cart.paymentMethod) {
       navigate("/payment")
     }
-  }, [cart.paymentMethod, cart.shippingAddress.address, navigate])
+  }, [cart.paymentMethod, cart.shippingAddress, navigate])
 
   return (
     <>
@@ -51,7 +52,13 @@ const PlaceOrderScreens = () => {
                   ) : (
                     <ListGroup variant="flush">
                       {cart.orderItems.map((item, index) => (
-                        <ListGroup.Item key={index}> </ListGroup.Item>
+                        <ListGroup.Item key={index}>
+                          <Row>
+                            <Col>
+                              <Image src={item.image} fluid rounded />
+                            </Col>
+                          </Row>{" "}
+                        </ListGroup.Item>
                       ))}
                     </ListGroup>
                   )}
