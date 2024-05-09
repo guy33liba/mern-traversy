@@ -6,7 +6,7 @@ import CheckoutSteps from "../components/CheckoutSteps"
 import { toast } from "react-toastify"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
-import { useCreateOrderMutations as useCreateOrderMutation } from "../slices/orderApiSlice"
+import { useCreateOrderMutation } from "../slices/orderApiSlice"
 import { clearCartItems } from "../slices/cartSlice"
 //
 const PlaceOrderScreens = () => {
@@ -23,8 +23,8 @@ const PlaceOrderScreens = () => {
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate])
 
-  const placeOrderHandler = () => {
-    useCreateOrderMutation
+  const placeOrderHandler = async () => {
+    createOrder()
   }
   return (
     <>
@@ -111,6 +111,9 @@ const PlaceOrderScreens = () => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
+                {error && <Message variant="danger">{error}</Message>}
+              </ListGroup.Item>
+              <ListGroup.Item>
                 <Button
                   type="button"
                   className="btn-block"
@@ -119,6 +122,7 @@ const PlaceOrderScreens = () => {
                 >
                   Place Order
                 </Button>
+                {isLoading && <Loader />}
               </ListGroup.Item>
             </ListGroup>
           </Card>
