@@ -47,6 +47,7 @@ const PlaceOrderScreens = () => {
                 <strong>{cart.paymentMethod}</strong>
               </p>
             </ListGroup.Item>
+
             <ListGroup.Item>
               <h2>Order Items</h2>
               <strong>Payment Method:</strong>
@@ -57,7 +58,7 @@ const PlaceOrderScreens = () => {
                   {cart.cartItems.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row>
-                        <Col>
+                        <Col md={2}>
                           <Image src={item.image} fluid rounded />
                         </Col>
                         <Col md={4}>
@@ -73,6 +74,39 @@ const PlaceOrderScreens = () => {
               )}
             </ListGroup.Item>
           </ListGroup>
+        </Col>
+        <Col className="" md={3}>
+          <Card>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <h2>Order Summary</h2>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col>items:</Col>
+                  <Col>${cart.itemsPrice}</Col>
+                </Row>
+              </ListGroup.Item>{" "}
+              <ListGroup.Item>
+                <Row>
+                  <Col>Shipping:</Col>
+                  <Col>${cart.shippingPrice}</Col>
+                </Row>
+              </ListGroup.Item>{" "}
+              <ListGroup.Item>
+                <Row>
+                  <Col>tax:</Col>
+                  <Col>${cart.taxPrice}</Col>
+                </Row>
+              </ListGroup.Item>{" "}
+              <ListGroup.Item>
+                <Row>
+                  <Col>total:</Col>
+                  <Col>${cart.totalPrice}</Col>
+                </Row>
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
         </Col>
       </Row>
     </>
