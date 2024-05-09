@@ -23,55 +23,59 @@ const PlaceOrderScreens = () => {
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate])
   return (
     <>
-      <CheckoutSteps step2 step3 step4>
-        <Row>
-          <Col md={8}>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                <h2>Shipping</h2>
-                <p>
-                  <strong>Address:</strong>
-                  {cart.shippingAddress.address},{cart.shippingAddress.city}
-                  {cart.shippingAddress.postalCode}
-                  {cart.shippingAddress.country}
-                </p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <h2>Shipping</h2>
-                <p>
-                  <strong>Payment Method:</strong>
-                  {cart.paymentMethod}
-                </p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <h2>Order Items</h2>
+      <CheckoutSteps step2 step3 step4 />
+      <Row>
+        <Col md={8}>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h2>Shipping</h2>
+              <p>
+                <strong>Address:</strong>
+                <div>
+                  <h4>
+                    {cart.shippingAddress.address},{cart.shippingAddress.city}
+                  </h4>
+                  <h4>
+                    {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
+                  </h4>
+                </div>
+              </p>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <h2>Shipping</h2>
+              <p>
                 <strong>Payment Method:</strong>
-                {cart.cartItems.length === 0 ? (
-                  <Message>Your Cart is Empty</Message>
-                ) : (
-                  <ListGroup variant="flush">
-                    {cart.cartItems.map((item, index) => (
-                      <ListGroup.Item key={index}>
-                        <Row>
-                          <Col>
-                            <Image src={item.image} fluid rounded />
-                          </Col>
-                          <Col md={4}>
-                            <Link to={`/products/${item.product}`}>{item.name}</Link>
-                          </Col>
-                          <Col md={4}>
-                            {item.qty} x {item.price} = ${item.qty * item.price}
-                          </Col>
-                        </Row>
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
-                )}
-              </ListGroup.Item>
-            </ListGroup>
-          </Col>
-        </Row>
-      </CheckoutSteps>
+                <h2>{cart.paymentMethod}</h2>
+              </p>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <h2>Order Items</h2>
+              <strong>Payment Method:</strong>
+              {cart.cartItems.length === 0 ? (
+                <Message>Your Cart is Empty</Message>
+              ) : (
+                <ListGroup variant="flush">
+                  {cart.cartItems.map((item, index) => (
+                    <ListGroup.Item key={index}>
+                      <Row>
+                        <Col>
+                          <Image src={item.image} fluid rounded />
+                        </Col>
+                        <Col md={4}>
+                          <Link to={`/products/${item.product}`}>{item.name}</Link>
+                        </Col>
+                        <Col md={4}>
+                          {item.qty} x {item.price} = ${item.qty * item.price}
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              )}
+            </ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
     </>
   )
 }
