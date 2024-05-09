@@ -42,10 +42,9 @@ const PlaceOrderScreens = () => {
               </p>
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Shipping</h2>
               <p>
-                <strong>Payment Method:</strong>
-                <h2>{cart.paymentMethod}</h2>
+                <h2>Payment Method:</h2>
+                <strong>{cart.paymentMethod}</strong>
               </p>
             </ListGroup.Item>
             <ListGroup.Item>
