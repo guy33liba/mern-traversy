@@ -18,6 +18,7 @@ import RegisterScreen from "./screens/RegisterScreen"
 import ShippingScreen from "./screens/ShippingScreen"
 import PaymentScreen from "./screens/PaymentScreen"
 import PrivateRoute from "./components/PrivateRoute"
+import PlaceOrderScreens from "./screens/PlaceOrderScreens"
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -29,9 +30,10 @@ const router = createBrowserRouter(
       <Route path="" element={<PrivateRoute />}>
         <Route path="/shipping" element={<ShippingScreen />} />
         <Route path="/payment" element={<PaymentScreen />} />
+        <Route path="/placeorder" element={<PlaceOrderScreens />} />
       </Route>
-    </Route>
-  )
+    </Route>,
+  ),
 )
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
@@ -39,5 +41,5 @@ root.render(
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 )
