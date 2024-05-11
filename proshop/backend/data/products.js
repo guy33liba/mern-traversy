@@ -1,7 +1,6 @@
 export const products = [
   {
     name: "Sony PlayStation 5",
-
     brand: "Sony",
     category: "Gaming Consoles",
     price: 109.99,
@@ -14,7 +13,6 @@ export const products = [
   },
   {
     name: `air pods 3`,
-
     brand: "Sony",
     category: "Gaming Consoles",
     price: 339.99,
@@ -27,7 +25,6 @@ export const products = [
   },
   {
     name: "iphone 13 ",
-
     brand: "Apple",
     category: "Gaming Consoles",
     price: 239.99,
