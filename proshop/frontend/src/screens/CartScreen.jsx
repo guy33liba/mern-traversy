@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { Row, Col, ListGroup, Image, Form, Button, Card } from "react-bootstrap"
 import { FaTrash } from "react-icons/fa"
 import Message from "../components/Message"
-import { addToCartHandler } from "./ProductScreen"
 import { addToCart, removeFromCart } from "../slices/cartSlice"
 
 const CartScreen = () => {
@@ -50,7 +49,8 @@ const CartScreen = () => {
                       value={item.qty}
                       onChange={(e) => {
                         addToCartHandler(item, Number(e.target.value))
-                      }}>
+                      }}
+                    >
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
@@ -60,7 +60,8 @@ const CartScreen = () => {
                     <Button
                       type="button"
                       variant="light"
-                      onClick={() => removeFromCartHandler(item._id)}>
+                      onClick={() => removeFromCartHandler(item._id)}
+                    >
                       <FaTrash />
                     </Button>
                   </Col>
@@ -82,7 +83,8 @@ const CartScreen = () => {
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
-                onClick={checkOutHandler}>
+                onClick={checkOutHandler}
+              >
                 Proceed to CheckOut
               </Button>
             </ListGroup.Item>

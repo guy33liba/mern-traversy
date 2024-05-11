@@ -34,7 +34,7 @@ const PlaceOrderScreens = () => {
         totalPrice: cart.totalPrice,
       }).unwrap()
       dispatch(clearCartItems)
-      navigate(`/order/${res._id}`)
+      navigate(`/order/${res.shippingAddress}`)
     } catch (error) {
       console.log(error)
       toast.error(error)
@@ -81,6 +81,7 @@ const PlaceOrderScreens = () => {
                           <Image src={item.image} fluid rounded />
                         </Col>
                         <Col md={4}>
+                          {console.log(item._id)}
                           <Link to={`/products/${item.product}`}>{item.name}</Link>
                         </Col>
                         <Col md={4}>

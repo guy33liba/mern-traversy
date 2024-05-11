@@ -11,5 +11,8 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
   devTools: true,
+  preloadedState: {
+    [apiSlice.reducerPath]: {}, // Initialize with empty object
+  },
 })
 export default store
